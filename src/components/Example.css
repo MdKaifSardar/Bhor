@@ -1,0 +1,36 @@
+.Example {
+    display: flex;
+    font-size: 30px;
+    margin-bottom: 20px;
+    font-family: 'Trebuchet MS';
+    position: auto;
+    align-self: auto;
+    text-align: center;
+    color: #fff;
+    margin-bottom: 20px;
+    font-family: "Roboto Mono", monospace;
+    font-size: 15px;
+    opacity: 0;
+    animation: blinker2 5s;
+    
+    justify-content: center;
+}
+.Example__blinker {
+    animation: blinker 0.5s cubic-bezier(0.5, 0, 1, 1) infinite alternate;
+}
+@keyframes blinker {
+    to {
+        opacity: 0;
+   }
+}
+@keyframes blinker2 {
+    20% {
+        opacity: 0;
+   }
+    90% {
+        opacity: 1;
+   }
+    100% {
+        opacity: 0;
+   }
+}
