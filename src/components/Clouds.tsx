@@ -1,7 +1,17 @@
 import { motion } from "framer-motion";
 import { cloudsLeft, cloudsRight } from "../imports/hero";
+import { useEffect } from "react";
 
 const Clouds = () => {
+  useEffect(() => {
+    // Preload images for both cloudsLeft and cloudsRight
+    const allClouds = [...cloudsLeft, ...cloudsRight]; // Combine both arrays
+
+    allClouds.forEach(({ cloud }) => {
+      const img = new Image(); // Create a new Image instance
+      img.src = cloud; // Set the image source to preload
+    });
+  }, []);
   return (
     <div className="absolute w-full h-screen overflow-hidden">
       {/* Left Clouds */}
@@ -15,11 +25,10 @@ const Clouds = () => {
             className={`absolute ${Cloud.pos}`}
             style={{ zIndex: Cloud.index }}
             initial={{ x: "-50vw", opacity: 1 }} // Start just off-screen on the left
-            animate={{ x: 0 }} // Move to the final position
+            animate={{ x: 0 }}
             transition={{
-              stiffness: 1, // Lower stiffness for smoother transition
-              damping: 40, // Higher damping for softer settling
-              delay: index * 1.2, // Slight delay between clouds
+              damping: 100, // Higher damping for softer settling
+              delay: index * 1, // Slight delay between clouds
               duration: 1,
             }}
           />
@@ -37,11 +46,10 @@ const Clouds = () => {
             className={`absolute ${Cloud.pos}`}
             style={{ zIndex: Cloud.index }}
             initial={{ x: "50vw", opacity: 1 }} // Start just off-screen on the right
-            animate={{ x: 10 }} // Move to the final position
+            animate={{ x: 0 }}
             transition={{
-              stiffness: 1, // Lower stiffness for smoother transition
-              damping: 40, // Higher damping for softer settling
-              delay: index * 1.1, // Slight delay between clouds
+              damping: 100, // Higher damping for softer settling
+              delay: index * 1, // Slight delay between clouds
               duration: 1, // Randomized duration for each cloud
             }}
           />

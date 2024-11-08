@@ -26,7 +26,7 @@ const CloudAnimation = () => {
     <div className="fixed inset-0 w-screen h-screen overflow-hidden z-50">
       {/* Left Cloud Image */}
       <motion.img
-        className="absolute h-full w-[60vw] object-cover opacity-1"
+        className="absolute left-0 h-screen w-auto lg:w-[60vw] opacity-1"
         src={OpenCloudLeft} // Set to the left cloud image
         initial="closedLeft"
         animate={isOpen ? "openLeft" : "closedLeft"}
@@ -39,7 +39,7 @@ const CloudAnimation = () => {
 
       {/* Right Cloud Image */}
       <motion.img
-        className="absolute h-full w-[60vw] object-cover opacity-1 right-0"
+        className="absolute right-0 h-screen w-auto lg:w-[60vw] opacity-1"
         src={OpenCLoudRight} // Set to the right cloud image
         initial="closedRight"
         animate={isOpen ? "openRight" : "closedRight"}

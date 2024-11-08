@@ -9,7 +9,9 @@ interface KGECbuildingProps {
 const KGECbuilding = ({ setIsEnded }: KGECbuildingProps) => {
   return (
     <div className="absolute bottom-0 left-0 w-full z-30 overflow-hidden">
-      <motion.div
+      <motion.img
+        src={KGEC} // Path to the image inside the public folder
+        alt="Hero"
         onAnimationComplete={() => {
           setIsEnded(true);
         }}
@@ -18,17 +20,11 @@ const KGECbuilding = ({ setIsEnded }: KGECbuildingProps) => {
         transition={{
           stiffness: 20, // Swift but smooth transition
           damping: 20, // Control the "bounciness"
-          duration: 1, // Duration for the animation to complete
-          delay: 5.3,
+          duration: 1.7, // Duration for the animation to complete
+          delay: 3.8,
         }}
-        className="w-full h-[25vh] sm:h-[50vh] md:h-[50vh] lg:h-auto"
-      >
-        <img
-          src={KGEC} // Path to the image inside the public folder
-          alt="Hero"
-          className="w-auto h-full object-cover"
-        />
-      </motion.div>
+        className="w-full h-[25vh] sm:h-[50vh] md:h-[50vh] lg:h-auto object-cover"
+      />
     </div>
   );
 };

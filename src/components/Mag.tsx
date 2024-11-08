@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import "./Mag.scss";
 import KGECbuilding from "./KGECbuilding";
@@ -7,15 +7,47 @@ import CloudAnimation from "./CloudAnimation";
 import SecondSection from "./SecondSection";
 import ArrowButton from "./DownArrow";
 import FadeAwayComponent from "./BgFade";
+import {
+  cloudsLeft,
+  cloudsRight,
+  KGEC,
+  OpenCloudLeft,
+  OpenCLoudRight,
+} from "../imports/hero";
+interface Cloud {
+  cloud: string; // Path to the image
+  pos: string;
+  index: number;
+}
 const Mag = () => {
-
   const [animationEnd, setAnimationEnd] = useState(false);
   const [isEnded, setIsEnded] = useState(false);
+
+  useEffect(() => {
+    // Combine the arrays of Cloud objects and direct image paths (strings)
+    const allClouds: (Cloud | string)[] = [
+      KGEC,
+      OpenCloudLeft,
+      OpenCLoudRight,
+    ];
+
+    allClouds.forEach((item) => {
+      const img = new Image();
+
+      // Check if the item is a Cloud object or a direct image path
+      if (typeof item === "string") {
+        img.src = item; // Direct image path (e.g., KGEC)
+      } else {
+        img.src = item.cloud; // Cloud object (e.g., { cloud: Cloud04, pos: "top-0", index: 10 })
+      }
+    });
+  }, []);
+
   return (
     <div>
       {/* opening cloud animation */}
       <CloudAnimation />
-      <FadeAwayComponent/>
+      <FadeAwayComponent />
 
       <div>
         <KGECbuilding setIsEnded={setIsEnded} />
@@ -30,7 +62,7 @@ const Mag = () => {
             initial={{ opacity: 0, scale: 0.5, y: "100%" }}
             animate={{ opacity: 1, scale: 1, y: "0%" }}
             transition={{
-              delay: 7,
+              delay: 10,
               duration: 0.3,
               ease: [0, 0.71, 0.2, 1.01],
               scale: {
@@ -40,7 +72,7 @@ const Mag = () => {
                 restDelta: 0.001,
               },
             }}
-            className="lg:text-4xl md:text-2xl  mt-20 mb-8 font-bold w-[90%]  uppercase text1 hidden md:block"
+            className="lg:text-4xl md:text-2xl  mt-20 mb-8 font-bold w-[90%] uppercase text1 hidden md:block"
           >
             kalyani government engineering college
           </motion.div>
@@ -52,7 +84,7 @@ const Mag = () => {
             initial={{ opacity: 0, scale: 0.5, y: "100%" }}
             animate={{ opacity: 1, scale: 1, y: "0%" }}
             transition={{
-              delay: 7,
+              delay: 12,
               duration: 0.3,
               ease: [0, 0.71, 0.2, 1.01],
               scale: {
