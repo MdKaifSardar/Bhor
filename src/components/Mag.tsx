@@ -8,8 +8,6 @@ import SecondSection from "./SecondSection";
 import ArrowButton from "./DownArrow";
 import FadeAwayComponent from "./BgFade";
 import {
-  cloudsLeft,
-  cloudsRight,
   KGEC,
   OpenCloudLeft,
   OpenCLoudRight,
