@@ -29,7 +29,7 @@ const KGECbuilding = ({ isEnded, setIsEnded }: KGECbuildingProps) => {
     };
   }, []);
   return (
-    <div className="absolute bottom-0 left-0 h-fit w-full z-30 overflow-hidden">
+    <div className="absolute h-screen w-full overflow-hidden">
       {isEnded ? (
         <motion.img
           loading="lazy"
@@ -43,7 +43,7 @@ const KGECbuilding = ({ isEnded, setIsEnded }: KGECbuildingProps) => {
             damping: 100,
             duration: 0.5,
           }}
-          className="w-full h-auto object-cover"
+          className="absolute z-30 bottom-0 left-0 w-full h-[30vh] sm:h-auto object-cover"
         />
       ) : (
         <motion.img
@@ -58,7 +58,7 @@ const KGECbuilding = ({ isEnded, setIsEnded }: KGECbuildingProps) => {
             duration: 1.7, // Duration for the animation to complete
             delay: 3.8,
           }}
-          className="w-full h-auto object-cover"
+          className="absolute z-30 bottom-0 left-0 w-full h-[30vh] sm:h-auto object-cover"
         />
       )}
     </div>

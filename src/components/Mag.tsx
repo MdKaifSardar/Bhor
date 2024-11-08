@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import "./Mag.scss";
 import KGECbuilding from "./KGECbuilding";
@@ -7,39 +7,9 @@ import CloudAnimation from "./CloudAnimation";
 import SecondSection from "./SecondSection";
 import ArrowButton from "./DownArrow";
 import FadeAwayComponent from "./BgFade";
-import {
-  KGEC,
-  OpenCloudLeft,
-  OpenCLoudRight,
-} from "../imports/hero";
-interface Cloud {
-  cloud: string; // Path to the image
-  pos: string;
-  index: number;
-}
 const Mag = () => {
   const [animationEnd, setAnimationEnd] = useState(false);
   const [isEnded, setIsEnded] = useState(false);
-
-  useEffect(() => {
-    // Combine the arrays of Cloud objects and direct image paths (strings)
-    const allClouds: (Cloud | string)[] = [
-      KGEC,
-      OpenCloudLeft,
-      OpenCLoudRight,
-    ];
-
-    allClouds.forEach((item) => {
-      const img = new Image();
-
-      // Check if the item is a Cloud object or a direct image path
-      if (typeof item === "string") {
-        img.src = item; // Direct image path (e.g., KGEC)
-      } else {
-        img.src = item.cloud; // Cloud object (e.g., { cloud: Cloud04, pos: "top-0", index: 10 })
-      }
-    });
-  }, []);
 
   return (
     <div>
