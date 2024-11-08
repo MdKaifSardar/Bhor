@@ -7,6 +7,8 @@ import Cloud05 from "../assets/Hero/Cloud05.png";
 import Cloud06 from "../assets/Hero/Cloud06.png";
 import Cloud07 from "../assets/Hero/Cloud07.png";
 import Cloud08 from "../assets/Hero/Cloud08.png";
+import OpenCloudLeft from "../assets/Hero/OpeningCloud Left.png";
+import OpenCLoudRight from "../assets/Hero/OpeningCloud Right.png";
 
 // Define the type for the cloud objects
 interface Cloud {
@@ -62,4 +64,4 @@ const cloudsRight: Cloud[] = [
   },
 ];
 
-export { KGEC, cloudsLeft, cloudsRight };
+export { KGEC, cloudsLeft, cloudsRight, OpenCLoudRight, OpenCloudLeft };

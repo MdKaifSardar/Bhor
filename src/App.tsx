@@ -12,9 +12,15 @@ function App() {
     };
     fakeDataFetch();
   }, []);
-  return <>
-  {isLoading ? (<Preloadingpage />) : (<Mag />)}
-  </>;
+  return (
+    <>
+      {isLoading ? (
+        <Preloadingpage/>
+      ) : (
+        <Mag />
+      )}
+    </>
+  );
 }
 
 export default App;
