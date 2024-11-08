@@ -19,7 +19,7 @@ const KGECbuilding = ({ setIsEnded }: KGECbuildingProps) => {
           stiffness: 20, // Swift but smooth transition
           damping: 20, // Control the "bounciness"
           duration: 1, // Duration for the animation to complete
-          delay: 5.8,
+          delay: 5.3,
         }}
         className="w-full h-[25vh] sm:h-[50vh] md:h-[50vh] lg:h-auto"
       >

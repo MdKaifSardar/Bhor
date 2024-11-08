@@ -31,7 +31,7 @@ const CloudAnimation = () => {
         initial="closedLeft"
         animate={isOpen ? "openLeft" : "closedLeft"}
         variants={cloudVariants}
-        transition={{ duration: 1.5, ease: "easeOut", delay: 3 }}
+        transition={{ duration: 1.5, ease: "easeOut", delay: 4 }}
         onAnimationComplete={handleAnimationComplete}
         style={{ zIndex: 50, willChange: "transform" }}
         alt="Left Cloud"
@@ -44,7 +44,7 @@ const CloudAnimation = () => {
         initial="closedRight"
         animate={isOpen ? "openRight" : "closedRight"}
         variants={cloudVariants}
-        transition={{ duration: 1.5, ease: "easeOut", delay: 3 }}
+        transition={{ duration: 1.5, ease: "easeOut", delay: 4 }}
         onAnimationComplete={handleAnimationComplete}
         style={{ zIndex: 50, willChange: "transform" }}
         alt="Right Cloud"
