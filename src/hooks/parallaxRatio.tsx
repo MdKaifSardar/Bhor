@@ -7,7 +7,7 @@ const useResponsiveScrollRatio = () => {
     const width = window.innerWidth;
     if (width >= 1024) {
       // lg and up
-      setScrollRatio(0.4); // Set desired ratio for large screens
+      setScrollRatio(0.31); // Set desired ratio for large screens
     } else if (width >= 768) {
       // md and up
       setScrollRatio(0.3); // Set desired ratio for medium screens
