@@ -48,7 +48,7 @@ const Mag = () => {
       <FadeAwayComponent />
 
       <div>
-        <KGECbuilding setIsEnded={setIsEnded} />
+        <KGECbuilding isEnded={isEnded} setIsEnded={setIsEnded} />
         {isEnded && <Clouds />}
       </div>
       <div className="landscape flex justify-center">
