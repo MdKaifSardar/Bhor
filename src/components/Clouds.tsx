@@ -79,7 +79,7 @@ const Clouds = () => {
               className={`absolute ${Cloud.pos}`}
               style={{ zIndex: Cloud.index, opacity: index === 0 ? 0.8 : 1 }} // Special opacity for index 0
               animate={{
-                y: scrollY * (index === 0 ? 0.2 : index / 9), // Custom parallax speed for index 0
+                y: scrollY * (index === 0 ? 0.2 : index * scrollRatio), // Custom parallax speed for index 0
               }}
               transition={{
                 damping: 100,
