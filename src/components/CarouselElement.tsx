@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import { useState } from "react";
 import DownloadButton from "./DownloadButton";
 
 interface Magazine {
@@ -14,12 +13,6 @@ interface CarouselElementProps {
   magazine: Magazine;
 }
 const CarouselElement = ({ magazine }: CarouselElementProps) => {
-  const [clicked, setClicked] = useState(false);
-
-  const handleDownloadClick = () => {
-    setClicked(true);
-    setTimeout(() => setClicked(false), 500); // Reset click indicator after 500ms
-  };
   return (
     <motion.div
       key={magazine.index}
@@ -43,14 +36,7 @@ const CarouselElement = ({ magazine }: CarouselElementProps) => {
       />
 
       {/* Download Button */}
-      <DownloadButton
-        // onClick={handleDownloadClick}
-        // className={`px-4 py-2 rounded ${
-        //   clicked ? "bg-green-500" : "bg-blue-500"
-        // } hover:bg-blue-600`}
-      >
-        {/* {clicked ? "Downloading..." : "Download"} */}
-      </DownloadButton>
+      <DownloadButton/>
     </motion.div>
   );
 };
