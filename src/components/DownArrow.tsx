@@ -1,10 +1,6 @@
 import React from "react";
 
-interface ArrowButtonProps {
-  animationEnd: boolean;
-}
-
-const ArrowButton: React.FC<ArrowButtonProps> = ({ animationEnd }) => {
+const ArrowButton: React.FC = () => {
   const handleClick = () => {
     window.scrollBy({
       top: window.innerHeight,
@@ -14,9 +10,7 @@ const ArrowButton: React.FC<ArrowButtonProps> = ({ animationEnd }) => {
 
   return (
     <div
-      className={`absolute w-full flex flex-col justify-center items-center transition-opacity duration-500 ${
-        animationEnd ? "opacity-100" : "opacity-0"
-      }`}
+      className="absolute w-full flex flex-col justify-center items-center transition-opacity duration-500 opacity-100"
     >
       <button
         className="z-50 p-2 bg-blue-400 absolute bottom-10"

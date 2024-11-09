@@ -2,9 +2,13 @@ import { useState, useEffect } from "react";
 
 import Preloadingpage from "./Preloadingpage";
 import Mag from "./components/Mag";
+import useImagePreloader from "./utils/hooks/ImagePreloader";
 function App() {
   const [isLoading, setIsLoading] = useState(true);
+  const preloadImages = useImagePreloader();
+
   useEffect(() => {
+    preloadImages();
     const fakeDataFetch = () => {
       setTimeout(() => {
         setIsLoading(false);
@@ -14,11 +18,7 @@ function App() {
   }, []);
   return (
     <>
-      {isLoading ? (
-        <Preloadingpage/>
-      ) : (
-        <Mag />
-      )}
+      {isLoading ? <Preloadingpage /> : <Mag />}
       {/* <Mag /> */}
     </>
   );

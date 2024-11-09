@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { KGEC } from "../imports/hero"; // Import the image path
 import React, { useEffect, useState } from "react";
-import useResponsiveScrollRatio from "../hooks/parallaxRatio";
+import useResponsiveScrollRatio from "../utils/hooks/parallaxRatio";
 
 interface KGECbuildingProps {
   setIsEnded: React.Dispatch<React.SetStateAction<boolean>>;
@@ -10,7 +10,7 @@ interface KGECbuildingProps {
 
 const KGECbuilding = ({ isEnded, setIsEnded }: KGECbuildingProps) => {
   const [scrollY, setScrollY] = useState(0);
-  const scrollRatio = useResponsiveScrollRatio();
+  const { buildingScrollRatio } = useResponsiveScrollRatio();
 
   const handleAnimationComplete = () => {
     setIsEnded(true);
@@ -37,7 +37,7 @@ const KGECbuilding = ({ isEnded, setIsEnded }: KGECbuildingProps) => {
           alt="Hero"
           initial={{ y: "100%" }} // Start from below the screen
           animate={{
-            y: scrollY * scrollRatio, // Custom parallax speed for index 0
+            y: scrollY * buildingScrollRatio, // Custom parallax speed for index 0
           }}
           transition={{
             damping: 100,

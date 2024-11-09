@@ -4,7 +4,6 @@ import "./Preload.css";
 import styles from "./style.module.scss";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { KGEC, OpenCloudLeft, OpenCLoudRight } from "./imports/hero";
 const animationDuration = 2; // Change animation duration here
 const variants = {
   initial: { pathLength: 0, strokeOpacity: 1, fillOpacity: 0 },
@@ -25,12 +24,6 @@ const variants = {
   },
 };
 
-interface Cloud {
-  cloud: string; // Path to the image
-  pos: string;
-  index: number;
-}
-
 const Preloadingpage = () => {
   const [loaded, setLoaded] = useState(false);
 
@@ -41,22 +34,6 @@ const Preloadingpage = () => {
     }, 3000);
 
     return () => clearTimeout(timeout);
-  }, []);
-
-  useEffect(() => {
-    // Combine the arrays of Cloud objects and direct image paths (strings)
-    const allClouds: (Cloud | string)[] = [KGEC, OpenCloudLeft, OpenCLoudRight];
-
-    allClouds.forEach((item) => {
-      const img = new Image();
-
-      // Check if the item is a Cloud object or a direct image path
-      if (typeof item === "string") {
-        img.src = item; // Direct image path (e.g., KGEC)
-      } else {
-        img.src = item.cloud; // Cloud object (e.g., { cloud: Cloud04, pos: "top-0", index: 10 })
-      }
-    });
   }, []);
   return (
     <div className="overflow-hidden">

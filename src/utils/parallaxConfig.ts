@@ -1,4 +1,4 @@
-import { Adaptive } from '@hooks/adaptiveScreenSize';
+import { Adaptive } from './hooks/adaptiveScreenSize';
 
 export enum Pages {
   object1 = 'OBJECT1',

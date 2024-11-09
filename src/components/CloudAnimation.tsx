@@ -23,7 +23,7 @@ const CloudAnimation = () => {
   }, []);
 
   return (
-    <div className="fixed inset-0 w-screen h-screen overflow-hidden z-50">
+    <div className="fixed inset-0 w-screen h-screen overflow-hidden z-40">
       {/* Left Cloud Image */}
       <motion.img
         className="absolute left-0 h-screen w-auto lg:w-[60vw] opacity-1"

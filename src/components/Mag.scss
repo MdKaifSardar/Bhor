@@ -11,15 +11,15 @@
 *,
 *:before,
 *:after {
-  
+
 }
-.landscape:after,
-.landscape:before,
-.landscape *,
-.landscape *:after,
-.landscape *:before {
-  position: absolute;
-}
+// .landscape:after,
+// .landscape:before,
+// .landscape *,
+// .landscape *:after,
+// .landscape *:before {
+//   position: absolute;
+// }
 
 .front {
   // z-index: 1;
@@ -29,11 +29,7 @@
 }
 
 .landscape {
-  height: 100vh;
   background-image: linear-gradient(var(--v1), var(--s1), var(--v1));
-  position: relative;
-  // z-index: 1;
-  overflow: hidden;
 }
 
 .mountain {
@@ -481,7 +477,6 @@
 }
 
 .text1{
-  text-align: center;
   text-shadow: 2px 4px 4px #3b1895;
 }
 .visible{

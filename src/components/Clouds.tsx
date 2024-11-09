@@ -1,29 +1,20 @@
 import { motion } from "framer-motion";
 import { cloudsLeft, cloudsRight } from "../imports/hero";
 import { useEffect, useState } from "react";
-import useResponsiveScrollRatio from "../hooks/parallaxRatio";
+import useResponsiveScrollRatio from "../utils/hooks/parallaxRatio";
 
 const Clouds = () => {
   const [scrollY, setScrollY] = useState(0);
   const [animationComplete, setAnimationComplete] = useState(false);
   const [count, setCount] = useState(0);
-  const scrollRatio = useResponsiveScrollRatio()
+  const { cloudScrollRatio } = useResponsiveScrollRatio();
 
   // Update scroll position
   const handleScroll = () => {
     setScrollY(window.scrollY);
   };
 
-  // Preload images and setup scroll listener
   useEffect(() => {
-    // Preload images for both cloudsLeft and cloudsRight
-    const allClouds = [...cloudsLeft, ...cloudsRight]; // Combine both arrays
-    allClouds.forEach(({ cloud }) => {
-      const img = new Image(); // Create a new Image instance
-      img.src = cloud; // Set the image source to preload
-    });
-
-    // Attach scroll event listener
     window.addEventListener("scroll", handleScroll);
 
     // Cleanup on component unmount
@@ -31,7 +22,6 @@ const Clouds = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-
   // Handle the completion of the initial cloud animation
   const handleAnimationComplete = () => {
     if (count == 3) {
@@ -48,48 +38,48 @@ const Clouds = () => {
       {/* Left Clouds */}
       {animationComplete ? (
         <>
-        <div className="absolute h-full left-0 w-[50vw]">
-          {cloudsLeft.map((Cloud, index) => (
-            <motion.img
-              loading="lazy"
-              key={index}
-              src={Cloud.cloud}
-              alt="cloud"
-              className={`absolute ${Cloud.pos}`}
-              style={{ zIndex: Cloud.index, opacity: index === 0 ? 0.8 : 1 }} // Special opacity for index 0
-              animate={{
-                y: scrollY * (index === 0 ? 0.2 : index * scrollRatio), // Custom parallax speed for index 0
-              }}
-              transition={{
-                damping: 100,
-                duration: 0.5,
-              }}
-            />
-          ))}
-        </div>
+          <div className="absolute h-full left-0 w-[50vw]">
+            {cloudsLeft.map((Cloud, index) => (
+              <motion.img
+                loading="lazy"
+                key={index}
+                src={Cloud.cloud}
+                alt="cloud"
+                className={`absolute ${Cloud.pos}`}
+                style={{ zIndex: Cloud.index, opacity: index === 0 ? 0.8 : 1 }} // Special opacity for index 0
+                animate={{
+                  y: scrollY * (index === 0 ? cloudScrollRatio : index * cloudScrollRatio), // Custom parallax speed for index 0
+                }}
+                transition={{
+                  damping: 100,
+                  duration: 0.5,
+                }}
+              />
+            ))}
+          </div>
 
-        {/* Right Clouds */}
-        <div className="absolute h-full right-0 w-[50vw]">
-          {cloudsRight.map((Cloud, index) => (
-            <motion.img
-              loading="lazy"
-              key={index}
-              src={Cloud.cloud}
-              alt="cloud"
-              className={`absolute ${Cloud.pos}`}
-              style={{ zIndex: Cloud.index, opacity: index === 0 ? 0.8 : 1 }} // Special opacity for index 0
-              animate={{
-                y: scrollY * (index === 0 ? 0.2 : index * scrollRatio), // Custom parallax speed for index 0
-              }}
-              transition={{
-                damping: 100,
-                duration: 0.5,
-              }}
-            />
-          ))}
-        </div>
-      </>
-      ): (
+          {/* Right Clouds */}
+          <div className="absolute h-full right-0 w-[50vw]">
+            {cloudsRight.map((Cloud, index) => (
+              <motion.img
+                loading="lazy"
+                key={index}
+                src={Cloud.cloud}
+                alt="cloud"
+                className={`absolute ${Cloud.pos}`}
+                style={{ zIndex: Cloud.index, opacity: index === 0 ? 0.8 : 1 }} // Special opacity for index 0
+                animate={{
+                  y: scrollY * (index === 0 ? cloudScrollRatio : index * cloudScrollRatio), // Custom parallax speed for index 0
+                }}
+                transition={{
+                  damping: 100,
+                  duration: 0.5,
+                }}
+              />
+            ))}
+          </div>
+        </>
+      ) : (
         <>
           <div className="absolute h-full left-0 w-[50vw]">
             {cloudsLeft.map((Cloud, index) => (

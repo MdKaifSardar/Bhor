@@ -64,4 +64,40 @@ const cloudsRight: Cloud[] = [
   },
 ];
 
-export { KGEC, cloudsLeft, cloudsRight, OpenCLoudRight, OpenCloudLeft };
+const allClouds = [
+  {
+    cloud: Cloud01
+  },
+  {
+    cloud: Cloud02
+  },
+  {
+    cloud: Cloud03
+  },
+  {
+    cloud: Cloud04
+  },
+  {
+    cloud: Cloud05
+  },
+  {
+    cloud: Cloud06
+  },
+  {
+    cloud: Cloud07
+  },
+  {
+    cloud: Cloud08
+  },
+  {
+    cloud: KGEC
+  },
+  {
+    cloud: OpenCLoudRight
+  },
+  {
+    cloud: OpenCloudLeft
+  },
+]
+
+export { KGEC, cloudsLeft, cloudsRight, OpenCLoudRight, OpenCloudLeft, allClouds };
