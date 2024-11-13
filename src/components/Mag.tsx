@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import "./Mag.scss";
 import KGECbuilding from "./KGECbuilding";
 import Clouds from "./Clouds";
@@ -13,20 +13,18 @@ const Mag = () => {
   const [isEnded, setIsEnded] = useState(false);
   const { smallScreen } = useResponsiveScrollRatio();
   const [allAnimationEnd, setAllAnimationEnd] = useState(false);
-
-  useEffect(() => {
-    console.log(isEnded, smallScreen);
-  }, []);
+  const [bhorEnded, setBhorEnded] = useState(false);
+  const [CloudAnim, setCloudAnim] = useState(false);
   return (
     <div>
-      <div className="landscape overflow-hidden h-screen w-full">
+      <div className="landscape overflow-hidden h-screen w-full z-[-100]">
         <FadeAwayComponent />
-        <CloudAnimation />
+        {!CloudAnim ? <CloudAnimation setCloudAnim={setCloudAnim} /> : null}
         <KGECbuilding isEnded={isEnded} setIsEnded={setIsEnded} />
         {isEnded && <Clouds />}
         {isEnded && smallScreen && (
           <div className="h-screen w-full flex felx-col justify-center items-center">
-            <BhorAnimation />
+            <BhorAnimation setBhorEnded={setBhorEnded} />
           </div>
         )}
         <TextComponent setAllAnimationEnd={setAllAnimationEnd} />
@@ -39,7 +37,10 @@ const Mag = () => {
       {allAnimationEnd && (
         <>
           <ArrowButton />
-          <SecondSection />
+          <div className="z-[100]">
+            {" "}
+            <SecondSection bhorEnded={bhorEnded} setBhorEnded={setBhorEnded} />
+          </div>
         </>
       )}
     </div>

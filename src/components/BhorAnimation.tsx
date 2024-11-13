@@ -1,4 +1,9 @@
 import { motion } from "framer-motion";
+import { Dispatch, SetStateAction } from "react";
+
+interface BhorAnimationProps {
+  setBhorEnded: Dispatch<SetStateAction<boolean>>;
+}
 
 const animationDuration = 5; // Change animation duration here
 const variants = {
@@ -10,7 +15,6 @@ const variants = {
     transition: {
       duration: animationDuration,
       ease: "easeInOut",
-      delay: 2,
       strokeOpacity: {
         delay: animationDuration,
       },
@@ -21,12 +25,11 @@ const variants = {
   },
 };
 
-const BhorAnimation = () => {
+const BhorAnimation = ({ setBhorEnded }: BhorAnimationProps) => {
   return (
     <div className="z-40 w-fit flex felx-col justify-center h-fit items-center">
       <motion.div
-        initial={{ scale: 0.5 }}
-        animate={{ scale: 1 }}
+        transition={{ delay: 9 }}
         className="w-fit flex flex-col justify-center items-center"
         style={{ zIndex: 50 }}
       >
@@ -111,6 +114,9 @@ const BhorAnimation = () => {
                 d="m221.95,143.46c0,.78-.18,1.47-.54,2.06s-.83,1.11-1.39,1.56c-.56.45-1.19.82-1.87,1.12-.68.3-1.35.55-2,.75v.08c.83.31,1.65.67,2.48,1.09.82.42,1.61.89,2.36,1.4.75.52,1.44,1.08,2.07,1.69.64.61,1.18,1.24,1.63,1.91l-1.47,1.48c-.3-.44-.72-.92-1.27-1.44s-1.18-1.04-1.92-1.57c-.73-.53-1.55-1.04-2.45-1.54s-1.85-.96-2.86-1.38c-1.01-.41-2.07-.77-3.17-1.06-1.1-.29-2.22-.49-3.36-.59l.23-2.33c.17,0,.36.03.57.06.21.03.43.06.66.09.23.03.46.07.69.12.23.05.44.09.64.13.19.02.44.04.75.06.31.02.6.03.86.03.44,0,.92-.03,1.43-.09.51-.06,1.03-.16,1.54-.29.52-.13,1.02-.3,1.5-.49.48-.2.91-.43,1.28-.71.37-.28.67-.59.89-.95.22-.35.33-.75.33-1.19,0-.5-.14-.91-.42-1.24-.28-.32-.66-.59-1.12-.8s-1-.39-1.59-.53-1.2-.28-1.82-.41c-.62-.13-1.23-.28-1.82-.44-.59-.16-1.12-.37-1.59-.62s-.84-.57-1.12-.95-.42-.86-.42-1.43c0-.31.05-.6.16-.88.1-.27.25-.51.44-.71.19-.2.41-.36.68-.48.26-.12.56-.18.88-.18.27,0,.52.04.73.13.22.09.4.21.55.36s.27.32.35.51c.08.19.12.39.12.59,0,.27-.08.54-.24.8-.16.26-.4.48-.73.65v.08c.47.07,1.04.15,1.69.24.65.09,1.32.23,2.02.4.7.17,1.38.38,2.05.64.67.26,1.27.58,1.81.97.53.39.96.85,1.29,1.38.33.54.49,1.17.49,1.91Z"
               />
               <motion.path
+                onAnimationComplete={() => {
+                  setBhorEnded(true);
+                }}
                 fill="#fff"
                 // These values need to be added
                 stroke="#fff" // Customize line color

@@ -34,3 +34,10 @@ h1 {
 @tailwind components;
 @tailwind utilities;
 
+.main-gradient {
+  height: 300%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  background: linear-gradient(#000, #013e64 40%, #036fb3 80%, #cec108 100%);
+}
