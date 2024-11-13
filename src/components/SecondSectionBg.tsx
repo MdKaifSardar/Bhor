@@ -20,25 +20,25 @@ const SecindSectionBG = () => {
         src={farTrees}
         alt="Far Trees"
         style={{ y: yFarTrees }}
-        className="w-full h-screen absolute top-0 left-0 z-10"
+        className="w-full h-screen absolute top-0 left-0 z-10 object-cover"
       />
       <motion.img
         src={BackTrees}
         alt="Back Trees"
         style={{ y: yBackTrees }}
-        className="w-full h-screen absolute top-0 left-0 z-20"
+        className="w-full h-screen absolute top-0 left-0 z-20 object-cover"
       />
       <motion.img
         src={frontTrees}
         alt="Front Trees"
         style={{ y: yFrontTrees }}
-        className="w-full h-screen absolute top-0 left-0 z-40"
+        className="w-full h-screen absolute top-0 left-0 z-40 object-cover"
       />
       <motion.img
         src={rocks}
         alt="Rocks"
         style={{ y: yRocks }}
-        className="w-full h-screen absolute top-0 left-0 z-10"
+        className="w-full h-screen absolute top-0 left-0 z-10 object-cover"
       />
     </div>
   );
