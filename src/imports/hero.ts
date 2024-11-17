@@ -100,4 +100,13 @@ const allClouds = [
   },
 ]
 
-export { KGEC, cloudsLeft, cloudsRight, OpenCLoudRight, OpenCloudLeft, allClouds };
+const bigClouds = [
+  {
+    cloud: OpenCLoudRight,
+  },
+  {
+    cloud: OpenCloudLeft,
+  },
+]
+
+export { bigClouds, KGEC, cloudsLeft, cloudsRight, OpenCLoudRight, OpenCloudLeft, allClouds };

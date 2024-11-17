@@ -6,23 +6,27 @@ import CarouselElement from "./CarouselElement";
 interface AutoCarouselProps {
   currentIndex: number;
   setCurrentIndex: React.Dispatch<React.SetStateAction<number>>;
-  bhorEnded: boolean; // New prop to control auto-start
+  setDwnldIsClicked: React.Dispatch<React.SetStateAction<boolean>>;
+  bhorEnded: boolean;
   hasAppeared: boolean;
 }
 
-const AutoCarousel: React.FC<AutoCarouselProps> = ({
+const AutoCarousel = ({
+  setDwnldIsClicked,
   hasAppeared,
   currentIndex,
   setCurrentIndex,
   bhorEnded,
-}) => {
+}: AutoCarouselProps) => {
   const [isHovered, setIsHovered] = useState(false);
+  const [direction, setDirection] = useState(1); // 1 for left-to-right, -1 for right-to-left
 
-  // Automatically cycle through magazines every 5 seconds if isEnded is true and not hovered
   useEffect(() => {
-    if (isHovered || !hasAppeared) return;
+    if (isHovered || !hasAppeared || !bhorEnded) return;
 
+    setDirection(1);
     const interval = setInterval(() => {
+      setDirection(-1); // Always slide left-to-right for auto transitions
       setCurrentIndex((prevIndex) => (prevIndex + 1) % Magazines.length);
     }, 3000);
 
@@ -30,10 +34,12 @@ const AutoCarousel: React.FC<AutoCarouselProps> = ({
   }, [isHovered, bhorEnded, setCurrentIndex, hasAppeared]);
 
   const handleNext = () => {
+    setDirection(-1); // Left-to-right
     setCurrentIndex((prevIndex) => (prevIndex + 1) % Magazines.length);
   };
 
   const handlePrev = () => {
+    setDirection(1); // Right-to-left
     setCurrentIndex((prevIndex) =>
       prevIndex === 0 ? Magazines.length - 1 : prevIndex - 1
     );
@@ -45,10 +51,15 @@ const AutoCarousel: React.FC<AutoCarouselProps> = ({
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <AnimatePresence initial={false}>
+      <AnimatePresence initial={false} custom={direction}>
         {Magazines.map((magazine, index) =>
           index === currentIndex ? (
-            <CarouselElement key={index} magazine={magazine} />
+            <CarouselElement
+              setDwnldIsClicked={setDwnldIsClicked}
+              key={index}
+              magazine={magazine}
+              direction={direction}
+            />
           ) : null
         )}
       </AnimatePresence>

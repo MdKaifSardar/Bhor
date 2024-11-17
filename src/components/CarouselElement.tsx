@@ -10,22 +10,24 @@ interface Magazine {
 }
 
 interface CarouselElementProps {
+  setDwnldIsClicked: React.Dispatch<React.SetStateAction<boolean>>;
   magazine: Magazine;
+  direction: number; // Direction of animation
 }
-const CarouselElement = ({ magazine }: CarouselElementProps) => {
+
+const CarouselElement = ({ setDwnldIsClicked, magazine, direction }: CarouselElementProps) => {
   return (
     <motion.div
       key={magazine.index}
       className="absolute flex flex-col items-center justify-center gap-5 text-white h-[90%] w-fit"
-      initial={{ opacity: 0, x: "-100%" }}
+      initial={{ opacity: 0, x: direction > 0 ? "100%" : "-100%" }}
       animate={{ opacity: 1, x: 0 }}
-      exit={{ opacity: 0, x: "100%" }}
+      exit={{ opacity: 0, x: direction > 0 ? "-100%" : "100%" }}
       transition={{
+        x: { duration: 0.5 },
         opacity: { duration: 0.4 },
       }}
     >
-      {/* Magazine Title */}
-      <div className="text-xl font-bold">{magazine.title}</div>
 
       {/* Magazine Image */}
       <img
@@ -35,7 +37,7 @@ const CarouselElement = ({ magazine }: CarouselElementProps) => {
       />
 
       {/* Download Button */}
-      <DownloadButton />
+      <DownloadButton setDwnldIsClicked={setDwnldIsClicked}/>
     </motion.div>
   );
 };

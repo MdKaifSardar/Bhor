@@ -3,11 +3,11 @@ import { motion } from "framer-motion";
 import { OpenCloudLeft, OpenCLoudRight } from "../imports/hero";
 
 // Import your cloud images
-interface CloudAnimationProps{
+interface CloudAnimationProps {
   setCloudAnim: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const CloudAnimation = ({setCloudAnim}: CloudAnimationProps) => {
+const CloudAnimation = ({ setCloudAnim }: CloudAnimationProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const cloudVariants = {

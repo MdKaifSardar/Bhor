@@ -8,26 +8,30 @@ import BhorSvgFirst from "./BhorSvgs/BhorSvgFirst";
 import BhorSvgSecond from "./BhorSvgs/BhorSvgSecond";
 import SecindSectionBG from "./SecondSectionBg";
 import { motion } from "framer-motion";
+import useImagePreloader from "../utils/hooks/ImagePreloader";
 
 interface SecondSectionProps {
   bhorEnded: boolean;
   setBhorEnded: React.Dispatch<React.SetStateAction<boolean>>;
+  setDwnldIsClicked: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const SecondSection = ({ bhorEnded, setBhorEnded }: SecondSectionProps) => {
+const SecondSection = ({
+  setDwnldIsClicked,
+  bhorEnded,
+  setBhorEnded,
+}: SecondSectionProps) => {
   const [hasAppeared, setHasAppeared] = useState(false); // Track if the animation has already been triggered
   const { smallScreen } = useResponsiveScrollRatio();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [hasChanged, setHasChanged] = useState(false);
+  const PreloadBigClouds = useImagePreloader();
 
   const { ref, inView } = useInView({
     triggerOnce: true, // Trigger only once when it comes into view
     threshold: 0.5, // 50% of the section should be visible
   });
 
-  useEffect(() => {
-    console.log(hasAppeared);
-  }, [hasAppeared]);
   // Set the state when the section first comes into view
   if (inView && !hasAppeared) {
     setHasAppeared(true);
@@ -39,6 +43,10 @@ const SecondSection = ({ bhorEnded, setBhorEnded }: SecondSectionProps) => {
     }
   }, [currentIndex]);
 
+  useEffect(() => {
+    PreloadBigClouds();
+  }, []);
+
   return (
     <div
       ref={ref}
@@ -46,17 +54,18 @@ const SecondSection = ({ bhorEnded, setBhorEnded }: SecondSectionProps) => {
     >
       <SecindSectionBG />
       <div className="h-full w-full absolute overflow-hidden ">
-      <motion.div
-        initial={{ y: 0 }}
-        animate={{ y: "-60%" }}
-        transition={{
-          duration: 15,
-          delay: 5,
-          repeat: Infinity,
-          repeatType: "reverse",
-        }}
-        className=" main-gradient -z-40 absolute bottom-0  flex justify-center items-center"
-      /></div>
+        <motion.div
+          initial={{ y: 0 }}
+          animate={{ y: "-60%" }}
+          transition={{
+            duration: 15,
+            delay: 5,
+            repeat: Infinity,
+            repeatType: "reverse",
+          }}
+          className=" main-gradient -z-40 absolute bottom-0  flex justify-center items-center"
+        />
+      </div>
       <div className="-z-10 ">
         <FireflyCanvas />
       </div>
@@ -77,6 +86,7 @@ const SecondSection = ({ bhorEnded, setBhorEnded }: SecondSectionProps) => {
         </div>
       )}
       <AutoCarousel
+        setDwnldIsClicked={setDwnldIsClicked}
         hasAppeared={hasAppeared}
         bhorEnded={bhorEnded}
         currentIndex={currentIndex}

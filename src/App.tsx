@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 
 import Preloadingpage from "./Preloadingpage";
 import Mag from "./components/Mag";
 import useImagePreloader from "./utils/hooks/ImagePreloader";
+import MagazinePage from "./components/MagazinePage";
 function App() {
   const [isLoading, setIsLoading] = useState(true);
   const preloadImages = useImagePreloader();
@@ -17,10 +19,14 @@ function App() {
     fakeDataFetch();
   }, []);
   return (
-    <>
-      {isLoading ? <Preloadingpage /> : <Mag />}
-      {/* <Mag /> */}
-    </>
+    <div>
+      <Router>
+        <Routes>
+          <Route path="/" element={isLoading ? <Preloadingpage /> : <Mag />} />
+          <Route path="/magazineiew" element={<MagazinePage />} />
+        </Routes>
+      </Router>
+    </div>
   );
 }
 
