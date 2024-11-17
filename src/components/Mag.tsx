@@ -25,7 +25,8 @@ const Mag = () => {
 
       // Redirect to /magazineview after 3 seconds
       const timeoutId = setTimeout(() => {
-        window.open("/magazineiew", "_blank"); // Open in a new tab
+        const url = `${window.location.origin}/magazineview`;
+        window.open(url, "_blank");
       }, 3000);
 
       // Cleanup timeout on component unmount or dependency change

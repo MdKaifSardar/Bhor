@@ -23,7 +23,7 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={isLoading ? <Preloadingpage /> : <Mag />} />
-          <Route path="/magazineiew" element={<MagazinePage />} />
+          <Route path="/magazineview" element={<MagazinePage />} />
         </Routes>
       </Router>
     </div>

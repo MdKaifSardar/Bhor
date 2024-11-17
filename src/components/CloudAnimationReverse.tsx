@@ -53,7 +53,7 @@ const CloudAnimationReverse = ({ setCloudAnimRev, setDwnldIsClicked }: CloudAnim
             : "closedLeft"
         }
         variants={cloudVariants}
-        transition={{ duration: 2, ease: "easeOut" }}
+        transition={{ duration: 1.5, ease: "easeOut" }}
         onAnimationComplete={handleAnimationComplete}
         style={{ zIndex: 50, willChange: "transform" }}
         alt="Left Cloud"
@@ -72,7 +72,7 @@ const CloudAnimationReverse = ({ setCloudAnimRev, setDwnldIsClicked }: CloudAnim
             : "closedRight"
         }
         variants={cloudVariants}
-        transition={{ duration: 2, ease: "easeOut" }}
+        transition={{ duration: 1.5, ease: "easeOut" }}
         onAnimationComplete={handleAnimationComplete}
         style={{ zIndex: 50, willChange: "transform" }}
         alt="Right Cloud"
