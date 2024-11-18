@@ -22,7 +22,6 @@ const Mag = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-
     if (dwnldIsClicked) {
       setCloudAnimRev(true);
 
@@ -39,7 +38,9 @@ const Mag = () => {
     <div>
       <div className="landscape overflow-hidden h-screen w-full z-[-100]">
         <FadeAwayComponent />
-        {CloudAnim ? null : <CloudAnimation delay={4} setCloudAnim={setCloudAnim} />}
+        {CloudAnim ? null : (
+          <CloudAnimation delay={4} setCloudAnim={setCloudAnim} />
+        )}
         {CloudAnimRev ? (
           <CloudAnimationReverse
             setDwnldIsClicked={setDwnldIsClicked}
@@ -73,6 +74,11 @@ const Mag = () => {
           </div>
         </>
       )}
+      {/* <SecondSection
+        setDwnldIsClicked={setDwnldIsClicked}
+        bhorEnded={bhorEnded}
+        setBhorEnded={setBhorEnded}
+      /> */}
     </div>
   );
 };

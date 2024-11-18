@@ -1,27 +1,19 @@
-import useResponsiveScrollRatio from "../utils/hooks/parallaxRatio";
 import { motion } from "framer-motion";
 interface TextComponentProps {
   setAllAnimationEnd: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const TextComponent = ({ setAllAnimationEnd }: TextComponentProps) => {
-  const smallScreen = useResponsiveScrollRatio();
   return (
     <div
-      className="w-full ml-auto mr-auto top-20 overflow-hidden absolute h-fit flex flex-col justify-center gap-4 items-center"
+      className="w-full ml-auto mr-auto top-20 overflow-hidden absolute h-fit flex flex-col justify-center gap-2 md:gap-4 items-center"
       style={{ zIndex: 40 }}
     >
       <motion.div
-        onAnimationComplete={() => {
-          if (smallScreen) {
-            return;
-          }
-          setAllAnimationEnd(true);
-        }}
         initial={{ opacity: 0, scale: 0.5, y: "100%" }}
         animate={{ opacity: 1, scale: 1, y: "0%" }}
         transition={{
-          delay: 12,
+          delay: 11,
           duration: 0.3,
           ease: [0, 0.71, 0.2, 1.01],
           scale: {
@@ -84,7 +76,7 @@ const TextComponent = ({ setAllAnimationEnd }: TextComponentProps) => {
           initial={{ opacity: 0, scale: 0.5, y: "-100%" }}
           animate={{ opacity: 1, scale: 1, y: "0%" }}
           transition={{
-            delay: 11,
+            delay: 11.3,
             duration: 0.3,
             ease: [0, 0.71, 0.2, 1.01],
             scale: {

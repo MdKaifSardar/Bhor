@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { AnimatePresence } from "framer-motion";
 import { Magazines } from "../imports/magazine";
 import CarouselElement from "./CarouselElement";
+import { IoIosArrowBack } from "react-icons/io";
+import { IoIosArrowForward } from "react-icons/io";
 
 interface AutoCarouselProps {
   currentIndex: number;
@@ -47,7 +49,7 @@ const AutoCarousel = ({
 
   return (
     <div
-      className="relative overflow-hidden h-screen w-[90%] md:w-[50vw] flex items-center justify-center"
+      className="relative overflow-hidden h-screen w-[100%] md:w-[50vw] flex items-center justify-center"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
@@ -67,15 +69,15 @@ const AutoCarousel = ({
       {/* Navigation Arrows */}
       <button
         onClick={handlePrev}
-        className="z-[2] absolute left-4 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full hover:bg-gray-600"
+        className="z-[2] absolute lg:left-20 left-2 top-1/2 transform -translate-y-1/2 text-white p-2 rounded-full hover:bg-gray-600"
       >
-        ◀
+        <IoIosArrowBack className="text-2xl" />
       </button>
       <button
         onClick={handleNext}
-        className="z-[2] absolute right-4 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full hover:bg-gray-600"
+        className="z-[2] absolute lg:right-20 right-2 top-1/2 transform -translate-y-1/2 text-white p-2 rounded-full hover:bg-gray-600"
       >
-        ▶
+        <IoIosArrowForward className="text-2xl" />
       </button>
     </div>
   );
