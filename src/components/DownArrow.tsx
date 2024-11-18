@@ -15,8 +15,8 @@ const ArrowButton: React.FC = () => {
         className="z-50 p-2 absolute flex flex-col justify-center items-center bottom-10"
         onClick={handleClick}
       >
-        <span className="text-lg text-white sm:text-6xl font-semibold">Scroll Down</span>
-        <IoIosArrowDown className="text-2xl text-white md:text-8xl"/>
+        <span className="text-2xl text-white md:text-6xl font-semibold">Scroll Down</span>
+        <IoIosArrowDown className="text-2xl text-white md:text-6xl"/>
       </button>
     </div>
   );

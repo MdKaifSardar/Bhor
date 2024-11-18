@@ -11,6 +11,7 @@ import useResponsiveScrollRatio from "../utils/hooks/parallaxRatio";
 import TextComponent from "./TextComponent";
 import CloudAnimationReverse from "./CloudAnimationReverse";
 import { useNavigate } from "react-router-dom";
+import Sun from "./Sun";
 const Mag = () => {
   const [isEnded, setIsEnded] = useState(false);
   const { smallScreen } = useResponsiveScrollRatio();
@@ -44,7 +45,7 @@ const Mag = () => {
       <div className="landscape overflow-hidden h-screen w-full z-[-100]">
         <FadeAwayComponent />
         {CloudAnim ? null : (
-          <CloudAnimation delay={3} setCloudAnim={setCloudAnim} />
+          <CloudAnimation delay={3.2} setCloudAnim={setCloudAnim} />
         )}
         {CloudAnimRev ? (
           <CloudAnimationReverse
@@ -60,11 +61,7 @@ const Mag = () => {
           </div>
         )}
         <TextComponent setAllAnimationEnd={setAllAnimationEnd} />
-
-        <div className="sun-container sun-container-1"></div>
-        <div className="sun-container">
-          <div className="sun"></div>
-        </div>
+        <Sun />
       </div>
       {allAnimationEnd && (
         <>
@@ -77,11 +74,6 @@ const Mag = () => {
           />
         </>
       )}
-      {/* <SecondSection
-        setDwnldIsClicked={setDwnldIsClicked}
-        bhorEnded={bhorEnded}
-        setBhorEnded={setBhorEnded}
-      /> */}
     </div>
   );
 };

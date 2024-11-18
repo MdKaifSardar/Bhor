@@ -24,7 +24,7 @@ const CarouselElement = ({
 }: CarouselElementProps) => {
   return (
     <motion.div
-      className="absolute flex flex-col items-center gap-3 justify-between text-whites h-[70%] sm:h-[100%] w-full"
+      className="absolute flex flex-col items-center gap-4 justify-center text-white h-fit w-fit"
       initial={{ opacity: 0, x: direction > 0 ? "100%" : "-100%" }}
       animate={{ opacity: 1, x: 0 }}
       exit={{ opacity: 0, x: direction > 0 ? "-100%" : "100%" }}
@@ -37,7 +37,7 @@ const CarouselElement = ({
       <img
         src={magazine.image}
         alt={magazine.title}
-        className="h-[80%] sm:h-[70%] md:h-[90%] w-auto object-contain"
+        className="h-[50vh] sm:h-[50vh] md:h-[60vh] w-auto object-contain"
       />
 
       {/* Download Button */}

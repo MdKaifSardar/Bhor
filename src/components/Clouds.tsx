@@ -94,8 +94,8 @@ const Clouds = () => {
                 animate={{ x: 0 }}
                 transition={{
                   damping: 100, // Higher damping for softer settling
-                  delay: index * 1, // Slight delay between clouds
-                  duration: 1,
+                  delay: index * 1.3, // Slight delay between clouds
+                  duration: 1.2,
                 }}
                 onAnimationComplete={handleAnimationComplete} // Trigger after animation completes
               />
@@ -116,8 +116,8 @@ const Clouds = () => {
                 animate={{ x: 0 }}
                 transition={{
                   damping: 100, // Higher damping for softer settling
-                  delay: index * 1, // Slight delay between clouds
-                  duration: 1,
+                  delay: index * 1.3, // Slight delay between clouds
+                  duration: 1.2,
                 }}
               />
             ))}

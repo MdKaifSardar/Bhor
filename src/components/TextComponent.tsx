@@ -6,14 +6,14 @@ interface TextComponentProps {
 const TextComponent = ({ setAllAnimationEnd }: TextComponentProps) => {
   return (
     <div
-      className="w-full ml-auto mr-auto top-40 sm:top-20 overflow-hidden absolute h-fit flex flex-col justify-center gap-2 md:gap-4 items-center"
+      className="w-full ml-auto mr-auto top-[10%] sm:top-[16%] overflow-hidden absolute h-fit flex flex-col justify-center gap-2 md:gap-4 items-center"
       style={{ zIndex: 40 }}
     >
       <motion.div
         initial={{ opacity: 0, scale: 0.5, y: "100%" }}
         animate={{ opacity: 1, scale: 1, y: "0%" }}
         transition={{
-          delay: 8,
+          delay: 7.5,
           duration: 0.3,
           ease: [0, 0.71, 0.2, 1.01],
           scale: {
@@ -23,19 +23,16 @@ const TextComponent = ({ setAllAnimationEnd }: TextComponentProps) => {
             restDelta: 0.001,
           },
         }}
-        className="lg:text-4xl md:text-2xl text-center font-bold uppercase w-full text1"
+        className="text-4xl text-center font-bold uppercase w-full text1 hidden md:block lg:hidden"
       >
-        Student's Union
+        Kalyani Government Engineering College
       </motion.div>
 
-      {/* <motion.div
-        onAnimationComplete={() => {
-          setAllAnimationEnd(true);
-        }}
+      <motion.div
         initial={{ opacity: 0, scale: 0.5, y: "100%" }}
         animate={{ opacity: 1, scale: 1, y: "0%" }}
         transition={{
-          delay: 10,
+          delay: 7.5,
           duration: 0.3,
           ease: [0, 0.71, 0.2, 1.01],
           scale: {
@@ -45,16 +42,16 @@ const TextComponent = ({ setAllAnimationEnd }: TextComponentProps) => {
             restDelta: 0.001,
           },
         }}
-        className="lg:text-4xl md:text-xl text-center text-4xl font-bold uppercase w-full text1 md:hidden"
+        className="text-3xl text-center font-bold uppercase w-full text1 block md:hidden"
       >
         K.G.E.C
-      </motion.div> */}
+      </motion.div>
       <div className="h-full w-full flex flex-col justify-center items-center">
-        {/* <motion.div
+        <motion.div
           initial={{ opacity: 0, scale: 0.5, y: "100%" }}
           animate={{ opacity: 1, scale: 1, y: "0%" }}
           transition={{
-            delay: 10.7,
+            delay: 8.5,
             duration: 0.3,
             ease: [0, 0.71, 0.2, 1.01],
             scale: {
@@ -64,10 +61,10 @@ const TextComponent = ({ setAllAnimationEnd }: TextComponentProps) => {
               restDelta: 0.001,
             },
           }}
-          className="lg:text-2xl md:text-xl text-center text-md font-bold w-full uppercase text1"
+          className="lg:text-3xl md:text-2xl text-center text-md font-bold w-full uppercase text1"
         >
           STUDENTS' UNION
-        </motion.div> */}
+        </motion.div>
 
         <motion.div
           onAnimationComplete={() => {
@@ -76,7 +73,7 @@ const TextComponent = ({ setAllAnimationEnd }: TextComponentProps) => {
           initial={{ opacity: 0, scale: 0.5, y: "-100%" }}
           animate={{ opacity: 1, scale: 1, y: "0%" }}
           transition={{
-            delay: 8.7,
+            delay: 9.5,
             duration: 0.3,
             ease: [0, 0.71, 0.2, 1.01],
             scale: {

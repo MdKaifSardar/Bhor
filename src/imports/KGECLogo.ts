@@ -1,3 +1,3 @@
-import KGECLogo from "../assets/Hero/KGEC_LOGO w.svg";
+import KGECLogo from "../assets/Hero/KGEC LOGO w.svg";
 
 export { KGECLogo };
