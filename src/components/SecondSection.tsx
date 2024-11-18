@@ -9,6 +9,7 @@ import BhorSvgSecond from "./BhorSvgs/BhorSvgSecond";
 import SecindSectionBG from "./SecondSectionBg";
 import { motion } from "framer-motion";
 import useImagePreloader from "../utils/hooks/ImagePreloader";
+import { bottomCloud } from "../imports/hero";
 
 interface SecondSectionProps {
   bhorEnded: boolean;
@@ -52,6 +53,7 @@ const SecondSection = ({
       ref={ref}
       className="h-screen w-full flex flex-row justify-center items-center relative"
     >
+      <img src={bottomCloud} alt="bottom cloud" className="w-full absolute top-[-20vh] object-cover z-[50]"/>
       <SecindSectionBG />
       <div className="h-full w-full absolute overflow-hidden ">
         <motion.div

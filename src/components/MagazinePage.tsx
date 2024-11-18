@@ -5,7 +5,7 @@ const MagazinePage = () => {
   const [cloudAnim, setCloudAnim] = useState(false);
   return (
     <div>
-      {cloudAnim ? null : <CloudAnimation delay={1} setCloudAnim={setCloudAnim}/>}
+      {cloudAnim ? null : <CloudAnimation delay={0} setCloudAnim={setCloudAnim}/>}
       <div>thisis the mag</div>
     </div>
   );

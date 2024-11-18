@@ -10,6 +10,8 @@ import Cloud08 from "../assets/Hero/Cloud08.png";
 import OpenCloudLeft from "../assets/Hero/OpeningCloud Left.png";
 import OpenCLoudRight from "../assets/Hero/OpeningCloud Right.png";
 
+import bottomCloud from "../assets/Hero/cloudtransition.png"
+
 // Define the type for the cloud objects
 interface Cloud {
   cloud: string; // URL or path of the cloud image
@@ -109,4 +111,4 @@ const bigClouds = [
   },
 ]
 
-export { bigClouds, KGEC, cloudsLeft, cloudsRight, OpenCLoudRight, OpenCloudLeft, allClouds };
+export { bottomCloud, bigClouds, KGEC, cloudsLeft, cloudsRight, OpenCLoudRight, OpenCloudLeft, allClouds };

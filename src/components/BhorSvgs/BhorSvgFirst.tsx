@@ -4,7 +4,7 @@ const BhorSvgFirst = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      className="fill-white shadow1 stroke-2 w-[200px] md:w-80 stroke-white"
+      className="fill-white shadow1 stroke-2 w-[200px] md:w-80 stroke-white z-30"
       viewBox="0 0 252.15 160.49"
       id="vorImg"
     >

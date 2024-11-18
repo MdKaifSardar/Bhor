@@ -28,7 +28,7 @@ const Mag = () => {
       // Redirect to /magazineview after 3 seconds
       const timeoutId = setTimeout(() => {
         navigate("/magazineview");
-      }, 3000);
+      }, 1500);
 
       // Cleanup timeout on component unmount or dependency change
       return () => clearTimeout(timeoutId);
@@ -39,7 +39,7 @@ const Mag = () => {
       <div className="landscape overflow-hidden h-screen w-full z-[-100]">
         <FadeAwayComponent />
         {CloudAnim ? null : (
-          <CloudAnimation delay={4} setCloudAnim={setCloudAnim} />
+          <CloudAnimation delay={3} setCloudAnim={setCloudAnim} />
         )}
         {CloudAnimRev ? (
           <CloudAnimationReverse

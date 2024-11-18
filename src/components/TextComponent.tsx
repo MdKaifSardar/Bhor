@@ -13,7 +13,7 @@ const TextComponent = ({ setAllAnimationEnd }: TextComponentProps) => {
         initial={{ opacity: 0, scale: 0.5, y: "100%" }}
         animate={{ opacity: 1, scale: 1, y: "0%" }}
         transition={{
-          delay: 11,
+          delay: 8,
           duration: 0.3,
           ease: [0, 0.71, 0.2, 1.01],
           scale: {
@@ -76,7 +76,7 @@ const TextComponent = ({ setAllAnimationEnd }: TextComponentProps) => {
           initial={{ opacity: 0, scale: 0.5, y: "-100%" }}
           animate={{ opacity: 1, scale: 1, y: "0%" }}
           transition={{
-            delay: 11.3,
+            delay: 8.7,
             duration: 0.3,
             ease: [0, 0.71, 0.2, 1.01],
             scale: {
