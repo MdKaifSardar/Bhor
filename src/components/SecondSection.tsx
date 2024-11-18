@@ -55,14 +55,13 @@ const SecondSection = ({
       ref={ref}
       className="h-screen w-full flex flex-row justify-center items-center relative"
     >
-      <div className="z-40 absolute top-[-12vh] lg:top-[-18vh] overflow-hidden w-full">
+      <div className="z-40 absolute top-[-12vh] lg:top-[-18vh] overflow-hidden w-full h-[30vh] lg:h-auto">
         <img
           src={bottomCloud}
           alt="bottom cloud"
-          className="z-[10] w-auto lg:w-full h-[30vh] lg:h-auto object-cover"
+          className="z-[10] w-full h-full object-cover"
         />
-        <div className="bg-gradient-to-t from-blue-900 via-blue-600/10 opacity-[.6] to-transparent z-[20] absolute bottom-[40%] w-full h-[50%]" />
-        <div className="bg-gradient-to-b from-blue-900 via-blue-600/15 opacity-[.6] to-transparent z-[20] absolute top-[60%] w-full h-[50%]" />
+        <div className="gradient-overlay"/>
       </div>
       <SecindSectionBG />
       <div className="h-full w-full absolute overflow-hidden ">
