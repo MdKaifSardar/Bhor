@@ -69,14 +69,12 @@ const Mag = () => {
       {allAnimationEnd && (
         <>
           <ArrowButton />
-          {/* <div className="z-[100]"> */}
           <SecondSection
             setMagNo={setMagNo}
             setDwnldIsClicked={setDwnldIsClicked}
             bhorEnded={bhorEnded}
             setBhorEnded={setBhorEnded}
           />
-          {/* </div> */}
         </>
       )}
       {/* <SecondSection

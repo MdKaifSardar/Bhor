@@ -1,6 +1,5 @@
 import Magazine1 from "../assets/Hero/bhorCover2023.png";
-import Magazine2 from "../assets/Hero/bhorcover2024.png";
-// import VorLogo from "../assets/"
+import Magazine2 from "../assets/Hero/bhorCover2024.png";
 
 const Magazines = [
   {
