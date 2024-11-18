@@ -7,7 +7,10 @@ interface CloudAnimationProps {
   setDwnldIsClicked: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const CloudAnimationReverse = ({ setCloudAnimRev, setDwnldIsClicked }: CloudAnimationProps) => {
+const CloudAnimationReverse = ({
+  setCloudAnimRev,
+  setDwnldIsClicked,
+}: CloudAnimationProps) => {
   const [phase, setPhase] = useState<"open" | "closing" | "closed" | "opening">(
     "open"
   );
@@ -53,7 +56,7 @@ const CloudAnimationReverse = ({ setCloudAnimRev, setDwnldIsClicked }: CloudAnim
             : "closedLeft"
         }
         variants={cloudVariants}
-        transition={{ duration: 1.5, ease: "easeOut" }}
+        transition={{ duration: 1.1, ease: "easeOut" }}
         onAnimationComplete={handleAnimationComplete}
         style={{ zIndex: 50, willChange: "transform" }}
         alt="Left Cloud"
@@ -72,7 +75,7 @@ const CloudAnimationReverse = ({ setCloudAnimRev, setDwnldIsClicked }: CloudAnim
             : "closedRight"
         }
         variants={cloudVariants}
-        transition={{ duration: 1.5, ease: "easeOut" }}
+        transition={{ duration: 1.1, ease: "easeOut" }}
         onAnimationComplete={handleAnimationComplete}
         style={{ zIndex: 50, willChange: "transform" }}
         alt="Right Cloud"

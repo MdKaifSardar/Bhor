@@ -10,6 +10,7 @@ import BhorAnimation from "./BhorAnimation";
 import useResponsiveScrollRatio from "../utils/hooks/parallaxRatio";
 import TextComponent from "./TextComponent";
 import CloudAnimationReverse from "./CloudAnimationReverse";
+import { useNavigate } from "react-router-dom";
 const Mag = () => {
   const [isEnded, setIsEnded] = useState(false);
   const { smallScreen } = useResponsiveScrollRatio();
@@ -18,15 +19,16 @@ const Mag = () => {
   const [CloudAnim, setCloudAnim] = useState(false);
   const [CloudAnimRev, setCloudAnimRev] = useState(false);
   const [dwnldIsClicked, setDwnldIsClicked] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
+
     if (dwnldIsClicked) {
       setCloudAnimRev(true);
 
       // Redirect to /magazineview after 3 seconds
       const timeoutId = setTimeout(() => {
-        const url = `${window.location.origin}/magazineview`;
-        window.open(url, "_blank");
+        navigate("/magazineview");
       }, 3000);
 
       // Cleanup timeout on component unmount or dependency change
@@ -37,7 +39,7 @@ const Mag = () => {
     <div>
       <div className="landscape overflow-hidden h-screen w-full z-[-100]">
         <FadeAwayComponent />
-        {CloudAnim ? null : <CloudAnimation setCloudAnim={setCloudAnim} />}
+        {CloudAnim ? null : <CloudAnimation delay={4} setCloudAnim={setCloudAnim} />}
         {CloudAnimRev ? (
           <CloudAnimationReverse
             setDwnldIsClicked={setDwnldIsClicked}

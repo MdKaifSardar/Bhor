@@ -31,12 +31,12 @@ const TextComponent = ({ setAllAnimationEnd }: TextComponentProps) => {
             restDelta: 0.001,
           },
         }}
-        className="lg:text-4xl md:text-2xl text-center font-bold uppercase w-full text1 hidden md:block"
+        className="lg:text-4xl md:text-2xl text-center font-bold uppercase w-full text1"
       >
-        kalyani government engineering college
+        Student's Union
       </motion.div>
 
-      <motion.div
+      {/* <motion.div
         onAnimationComplete={() => {
           setAllAnimationEnd(true);
         }}
@@ -56,9 +56,9 @@ const TextComponent = ({ setAllAnimationEnd }: TextComponentProps) => {
         className="lg:text-4xl md:text-xl text-center text-4xl font-bold uppercase w-full text1 md:hidden"
       >
         K.G.E.C
-      </motion.div>
-      <div className="h-full w-full flex flex-col justify-center items-center md:hidden">
-        <motion.div
+      </motion.div> */}
+      <div className="h-full w-full flex flex-col justify-center items-center">
+        {/* <motion.div
           initial={{ opacity: 0, scale: 0.5, y: "100%" }}
           animate={{ opacity: 1, scale: 1, y: "0%" }}
           transition={{
@@ -75,7 +75,7 @@ const TextComponent = ({ setAllAnimationEnd }: TextComponentProps) => {
           className="lg:text-2xl md:text-xl text-center text-md font-bold w-full uppercase text1"
         >
           STUDENTS' UNION
-        </motion.div>
+        </motion.div> */}
 
         <motion.div
           onAnimationComplete={() => {
@@ -94,7 +94,7 @@ const TextComponent = ({ setAllAnimationEnd }: TextComponentProps) => {
               restDelta: 0.001,
             },
           }}
-          className="lg:text-2xl md:text-sm text-center text-md font-md w-full text1"
+          className="lg:text-2xl md:text-lg text-center text-md font-md w-full text1"
         >
           presents
         </motion.div>

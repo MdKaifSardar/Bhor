@@ -5,9 +5,10 @@ import { OpenCloudLeft, OpenCLoudRight } from "../imports/hero";
 // Import your cloud images
 interface CloudAnimationProps {
   setCloudAnim: React.Dispatch<React.SetStateAction<boolean>>;
+  delay: number
 }
 
-const CloudAnimation = ({ setCloudAnim }: CloudAnimationProps) => {
+const CloudAnimation = ({ setCloudAnim, delay }: CloudAnimationProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const cloudVariants = {
@@ -34,7 +35,7 @@ const CloudAnimation = ({ setCloudAnim }: CloudAnimationProps) => {
         initial="closedLeft"
         animate={isOpen ? "openLeft" : "closedLeft"}
         variants={cloudVariants}
-        transition={{ duration: 1.5, ease: "easeOut", delay: 4 }}
+        transition={{ duration: 1.1, ease: "easeOut", delay: delay }}
         onAnimationComplete={handleAnimationComplete}
         style={{ zIndex: 50, willChange: "transform" }}
         alt="Left Cloud"
@@ -47,7 +48,7 @@ const CloudAnimation = ({ setCloudAnim }: CloudAnimationProps) => {
         initial="closedRight"
         animate={isOpen ? "openRight" : "closedRight"}
         variants={cloudVariants}
-        transition={{ duration: 1.5, ease: "easeOut", delay: 4 }}
+        transition={{ duration: 1.1, ease: "easeOut", delay: delay }}
         onAnimationComplete={handleAnimationComplete}
         style={{ zIndex: 50, willChange: "transform" }}
         alt="Right Cloud"
