@@ -19,6 +19,7 @@ const Mag = () => {
   const [CloudAnim, setCloudAnim] = useState(false);
   const [CloudAnimRev, setCloudAnimRev] = useState(false);
   const [dwnldIsClicked, setDwnldIsClicked] = useState(false);
+  const [magNo, setMagNo] = useState(0);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -27,7 +28,11 @@ const Mag = () => {
 
       // Redirect to /magazineview after 3 seconds
       const timeoutId = setTimeout(() => {
-        navigate("/magazineview");
+        if (magNo == 0) {
+          navigate("/magazineview2023");
+        } else if (magNo == 1) {
+          navigate("/magazineview2024");
+        }
       }, 1500);
 
       // Cleanup timeout on component unmount or dependency change
@@ -64,14 +69,14 @@ const Mag = () => {
       {allAnimationEnd && (
         <>
           <ArrowButton />
-          <div className="z-[100]">
-            {" "}
-            <SecondSection
-              setDwnldIsClicked={setDwnldIsClicked}
-              bhorEnded={bhorEnded}
-              setBhorEnded={setBhorEnded}
-            />
-          </div>
+          {/* <div className="z-[100]"> */}
+          <SecondSection
+            setMagNo={setMagNo}
+            setDwnldIsClicked={setDwnldIsClicked}
+            bhorEnded={bhorEnded}
+            setBhorEnded={setBhorEnded}
+          />
+          {/* </div> */}
         </>
       )}
       {/* <SecondSection

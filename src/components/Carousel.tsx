@@ -9,11 +9,13 @@ interface AutoCarouselProps {
   currentIndex: number;
   setCurrentIndex: React.Dispatch<React.SetStateAction<number>>;
   setDwnldIsClicked: React.Dispatch<React.SetStateAction<boolean>>;
+  setMagNo: React.Dispatch<React.SetStateAction<number>>;
   bhorEnded: boolean;
   hasAppeared: boolean;
 }
 
 const AutoCarousel = ({
+  setMagNo,
   setDwnldIsClicked,
   hasAppeared,
   currentIndex,
@@ -49,7 +51,7 @@ const AutoCarousel = ({
 
   return (
     <div
-      className="relative overflow-hidden h-screen w-[100%] md:w-[50vw] flex items-center justify-center"
+      className="relative overflow-hidden h-[80%] sm:h-[90%] w-[100vw] md:w-[50vw] flex flex-col items-center justify-center"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
@@ -57,6 +59,7 @@ const AutoCarousel = ({
         {Magazines.map((magazine, index) =>
           index === currentIndex ? (
             <CarouselElement
+              setMagNo={setMagNo}
               setDwnldIsClicked={setDwnldIsClicked}
               key={index}
               magazine={magazine}
@@ -69,13 +72,13 @@ const AutoCarousel = ({
       {/* Navigation Arrows */}
       <button
         onClick={handlePrev}
-        className="z-[2] absolute lg:left-20 left-2 top-1/2 transform -translate-y-1/2 text-white p-2 rounded-full hover:bg-gray-600"
+        className="z-[2] absolute md:left-[20%] left-5 top-1/2 transform -translate-y-1/2 text-white p-2 rounded-full hover:bg-gray-600"
       >
         <IoIosArrowBack className="text-2xl" />
       </button>
       <button
         onClick={handleNext}
-        className="z-[2] absolute lg:right-20 right-2 top-1/2 transform -translate-y-1/2 text-white p-2 rounded-full hover:bg-gray-600"
+        className="z-[2] absolute md:right-[20%] right-5 top-1/2 transform -translate-y-1/2 text-white p-2 rounded-full hover:bg-gray-600"
       >
         <IoIosArrowForward className="text-2xl" />
       </button>

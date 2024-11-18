@@ -10,10 +10,10 @@ const SecondSectionBG = () => {
   const { scrollY } = useScroll();
 
   // Parallax effect for each layer based on z-index
-  const yFarTrees = useTransform(scrollY, [0, 1000], [0, -150]);
-  const yBackTrees = useTransform(scrollY, [0, 1000], [0, -250]);
-  const yFrontTrees = useTransform(scrollY, [0, 1000], [0, -300]);
-  const yRocks = useTransform(scrollY, [0, 1000], [0, -200]);
+  const yFarTrees = useTransform(scrollY, [0, 1000], [0, -100]);
+  const yBackTrees = useTransform(scrollY, [0, 1000], [0, -200]);
+  const yFrontTrees = useTransform(scrollY, [0, 1000], [0, -250]);
+  const yRocks = useTransform(scrollY, [0, 1000], [0, -150]);
 
   // Transition configuration
   const smoothTransition = {damping: 100, duration: 0.5, ease: "easeOut" };
@@ -25,28 +25,28 @@ const SecondSectionBG = () => {
         alt="Far Trees"
         style={{ y: yFarTrees }}
         transition={smoothTransition}
-        className="w-full h-screen absolute bottom-[-15vh] left-0 z-10 object-cover"
+        className="w-full h-screen absolute bottom-[-10vh] left-0 z-10 object-cover"
       />
       <motion.img
         src={BackTrees}
         alt="Back Trees"
         style={{ y: yBackTrees }}
         transition={smoothTransition}
-        className="w-full h-screen absolute bottom-[-25vh] left-0 z-20 object-cover"
+        className="w-full h-screen absolute bottom-[-20vh] left-0 z-20 object-cover"
       />
       <motion.img
         src={frontTrees}
         alt="Front Trees"
         style={{ y: yFrontTrees }}
         transition={smoothTransition}
-        className="w-full h-screen absolute bottom-[-30vh] left-0 z-40 object-cover"
+        className="w-full h-screen absolute bottom-[-25vh] left-0 z-40 object-cover"
       />
       <motion.img
         src={rocks}
         alt="Rocks"
         style={{ y: yRocks }}
         transition={smoothTransition}
-        className="w-full h-screen absolute bottom-[-20vh] left-0 z-10 object-cover"
+        className="w-full h-screen absolute bottom-[-15vh] left-0 z-10 object-cover"
       />
     </div>
   );

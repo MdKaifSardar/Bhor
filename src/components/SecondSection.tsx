@@ -15,9 +15,11 @@ interface SecondSectionProps {
   bhorEnded: boolean;
   setBhorEnded: React.Dispatch<React.SetStateAction<boolean>>;
   setDwnldIsClicked: React.Dispatch<React.SetStateAction<boolean>>;
+  setMagNo: React.Dispatch<React.SetStateAction<number>>;
 }
 
 const SecondSection = ({
+  setMagNo,
   setDwnldIsClicked,
   bhorEnded,
   setBhorEnded,
@@ -53,7 +55,15 @@ const SecondSection = ({
       ref={ref}
       className="h-screen w-full flex flex-row justify-center items-center relative"
     >
-      <img src={bottomCloud} alt="bottom cloud" className="w-full absolute top-[-20vh] object-cover z-[50]"/>
+      <div className="z-40 absolute top-[-12vh] sm:top-[-10vh] md:top-[-20vh] overflow-hidden w-full">
+        <img
+          src={bottomCloud}
+          alt="bottom cloud"
+          className="z-[10] w-auto sm:w-full h-[30vh] sm:h-auto  object-cover"
+        />
+        <div className="bg-gradient-to-t from-blue-900 via-blue-600/10 opacity-[.6] to-transparent z-[20] absolute bottom-[40%] w-full h-[50%]" />
+        <div className="bg-gradient-to-b from-blue-900 via-blue-600/15 opacity-[.6] to-transparent z-[20] absolute top-[60%] w-full h-[50%]" />
+      </div>
       <SecindSectionBG />
       <div className="h-full w-full absolute overflow-hidden ">
         <motion.div
@@ -87,13 +97,16 @@ const SecondSection = ({
           )}
         </div>
       )}
-      <AutoCarousel
-        setDwnldIsClicked={setDwnldIsClicked}
-        hasAppeared={hasAppeared}
-        bhorEnded={bhorEnded}
-        currentIndex={currentIndex}
-        setCurrentIndex={setCurrentIndex}
-      />
+      <div className="pt-[15%] md:pt-[12%] h-screen w-fit">
+        <AutoCarousel
+          setMagNo={setMagNo}
+          setDwnldIsClicked={setDwnldIsClicked}
+          hasAppeared={hasAppeared}
+          bhorEnded={bhorEnded}
+          currentIndex={currentIndex}
+          setCurrentIndex={setCurrentIndex}
+        />
+      </div>
     </div>
   );
 };

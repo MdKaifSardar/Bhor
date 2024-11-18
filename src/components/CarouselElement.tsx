@@ -11,15 +11,20 @@ interface Magazine {
 
 interface CarouselElementProps {
   setDwnldIsClicked: React.Dispatch<React.SetStateAction<boolean>>;
+  setMagNo: React.Dispatch<React.SetStateAction<number>>;
   magazine: Magazine;
   direction: number; // Direction of animation
 }
 
-const CarouselElement = ({ setDwnldIsClicked, magazine, direction }: CarouselElementProps) => {
+const CarouselElement = ({
+  setMagNo,
+  setDwnldIsClicked,
+  magazine,
+  direction,
+}: CarouselElementProps) => {
   return (
     <motion.div
-      key={magazine.index}
-      className="absolute flex flex-col items-center justify-center gap-5 text-white h-[90%] w-fit"
+      className="absolute flex flex-col items-center gap-3 justify-between text-whites h-[70%] sm:h-[100%] w-full"
       initial={{ opacity: 0, x: direction > 0 ? "100%" : "-100%" }}
       animate={{ opacity: 1, x: 0 }}
       exit={{ opacity: 0, x: direction > 0 ? "-100%" : "100%" }}
@@ -28,16 +33,19 @@ const CarouselElement = ({ setDwnldIsClicked, magazine, direction }: CarouselEle
         opacity: { duration: 0.4 },
       }}
     >
-
       {/* Magazine Image */}
       <img
         src={magazine.image}
         alt={magazine.title}
-        className="md:h-[90%] h-[60%] w-auto object-contain"
+        className="h-[80%] sm:h-[70%] md:h-[90%] w-auto object-contain"
       />
 
       {/* Download Button */}
-      <DownloadButton setDwnldIsClicked={setDwnldIsClicked}/>
+      <DownloadButton
+        setMagNo={setMagNo}
+        magazine={magazine}
+        setDwnldIsClicked={setDwnldIsClicked}
+      />
     </motion.div>
   );
 };

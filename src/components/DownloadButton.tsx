@@ -2,12 +2,24 @@ import { motion } from "framer-motion";
 
 interface DownloadButtonProps {
   setDwnldIsClicked: React.Dispatch<React.SetStateAction<boolean>>;
+  setMagNo: React.Dispatch<React.SetStateAction<number>>;
+  magazine: Magazine;
 }
 
-const DownloadButton = ({ setDwnldIsClicked }: DownloadButtonProps) => {
+interface Magazine {
+  index: number;
+  year: number;
+  title: string;
+  image: string;
+  url: string;
+}
+
+const DownloadButton = ({ setMagNo, magazine, setDwnldIsClicked }: DownloadButtonProps) => {
   return (
     <motion.button
-      onClick={() => setDwnldIsClicked(true)}
+      onClick={() => {
+        setDwnldIsClicked(true)
+        setMagNo(magazine.index)}}
       className="relative py-1 px-2 text-lg font-semibold rounded-full text-white bg-transparent overflow-hidden focus:outline-none shadow-[0px_5px_30px_rgba(255,255,255,0.6)] hover:shadow-[0px_5px_30px_rgba(255,255,255,0.8)] transition-all duration-400"
       whileHover={{
         scale: 1.05,

@@ -42,7 +42,7 @@ const CloudAnimationReverse = ({
   }, []);
 
   return (
-    <div className="fixed inset-0 w-screen h-screen overflow-hidden z-40">
+    <div className="fixed inset-0 w-screen h-screen overflow-hidden z-[100]">
       {/* Left Cloud */}
       <motion.img
         className="absolute left-0 h-screen w-auto lg:w-[60vw] opacity-1"

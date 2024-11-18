@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 
-import Preloadingpage from "./Preloadingpage";
+// import Preloadingpage from "./Preloadingpage";
 import Mag from "./components/Mag";
 import useImagePreloader from "./utils/hooks/ImagePreloader";
-import MagazinePage from "./components/MagazinePage";
+import PreloadingpageCopy from "./Preloadingpage copy";
+import MagazinePage2023 from "./components/MagazinePage2023";
+import MagazinePage2024 from "./components/MagazinePage2024";
 function App() {
   const [isLoading, setIsLoading] = useState(true);
   const preloadImages = useImagePreloader();
@@ -22,9 +24,10 @@ function App() {
     <div>
       <Router>
         <Routes>
-          <Route path="/" element={isLoading ? <Preloadingpage/> : <Mag />} />
+          <Route path="/" element={isLoading ? <PreloadingpageCopy/> : <Mag />} />
           {/* <Route path="/" element={<Mag />} /> */}
-          <Route path="/magazineview" element={<MagazinePage />} />
+          <Route path="/magazineview2023" element={<MagazinePage2023 />} />
+          <Route path="/magazineview2024" element={<MagazinePage2024 />} />
         </Routes>
       </Router>
     </div>
