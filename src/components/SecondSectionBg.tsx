@@ -16,7 +16,7 @@ const SecondSectionBG = () => {
   const yRocks = useTransform(scrollY, [0, 1000], [0, -150]);
 
   // Transition configuration
-  const smoothTransition = {damping: 100, duration: 0.5, ease: "easeOut" };
+  const smoothTransition = { damping: 100, duration: 0.5, ease: "easeOut" };
 
   return (
     <div className="-z-20 w-full h-screen overflow-hidden absolute">
