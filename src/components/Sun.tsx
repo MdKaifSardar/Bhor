@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 const Sun: React.FC = () => {
   return (
-    <div className="absolute w-full h-screen overflow-hidden flex justify-center items-center">
+    <div className="absolute top-0 w-full flex flex-col justify-center items-center h-full overflow-hidden z-[20]">
       {/* Sun */}
       <motion.div
         className="absolute w-20 h-20 lg:w-32 lg:h-32 rounded-full bg-yellow-400"
@@ -18,8 +18,8 @@ const Sun: React.FC = () => {
           boxShadow: "0px 0px 80px 40px rgba(255,223,0,0.7)", // Brighter glow
         }}
         transition={{
-          delay: 4,
-          duration: 8, // Total animation duration in seconds
+          delay: 3,
+          duration: 12, // Total animation duration in seconds
           ease: "easeInOut", // Smooth easing for a natural effect
         }}
       />

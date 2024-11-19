@@ -42,7 +42,7 @@ const Mag = () => {
   }, [dwnldIsClicked]);
   return (
     <div>
-      <div className="landscape overflow-hidden h-screen w-full z-[-100]">
+      <div className="landscape overflow-hidden h-screen w-full ">
         <FadeAwayComponent />
         {CloudAnim ? null : (
           <CloudAnimation delay={3.2} setCloudAnim={setCloudAnim} />
